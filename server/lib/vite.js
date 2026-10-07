@@ -17,7 +17,7 @@ export function viteAssets(){
     const isDev = process.env.NODE_ENV !== 'production'
     // Rescatando la URL del servidor de desarrollo
     const viteDevServer = 
-    process.env.VITE_DEV_SERVER || 'http://locahost:5173'
+    process.env.VITE_DEV_SERVER || 'http://localhost:5173'
 
     // Si estamos en modo desarrollo
     if(isDev){
