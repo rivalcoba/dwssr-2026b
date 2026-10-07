@@ -19,7 +19,17 @@ export default defineConfig({
         // Puerto de escucha
         port: 5173,
         // Rigidez del puerto
-        strict: true
+        strictPort: true,
+        // Escuchar en 0.0.0.0 para que el reenvio de puertos pueda alcanzarlo
+        host: true,
+        // El HTML lo sirve Express (otro origen), por lo que se requiere CORS
+        cors: true,
+        // Permitir el host dinamico de Codespaces
+        allowedHosts: true,
+        // HMR a traves del proxy HTTPS de Codespaces
+        hmr: process.env.CODESPACE_NAME
+            ? { protocol: 'wss', clientPort: 443, host: `${process.env.CODESPACE_NAME}-5173.${process.env.GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}` }
+            : true
     },
     // Configurando el Build
     build: {
