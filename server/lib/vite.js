@@ -15,9 +15,13 @@ const __dirname = dirname(__filename)
 export function viteAssets(){
     // Obtener modo de ejecución
     const isDev = process.env.NODE_ENV !== 'production'
-    // Rescatando la URL del servidor de desarrollo
-    const viteDevServer = 
-    process.env.VITE_DEV_SERVER || 'http://localhost:5173'
+    // Usa el dominio reenviado por Codespaces y conserva localhost para desarrollo local.
+    const codespaceName = process.env.CODESPACE_NAME
+    const forwardingDomain = process.env.GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN
+    const defaultViteDevServer = codespaceName && forwardingDomain
+        ? `https://${codespaceName}-5173.${forwardingDomain}`
+        : 'http://localhost:5173'
+    const viteDevServer = process.env.VITE_DEV_SERVER || defaultViteDevServer
 
     // Si estamos en modo desarrollo
     if(isDev){
