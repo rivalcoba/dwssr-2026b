@@ -23,11 +23,8 @@
 	"forwardPorts": [3000, 5173],
 	"portsAttributes": {
 		"3000": { "label": "Express" },
-		"5173": { "label": "Vite" }
-	},
-
-	// El puerto 5173 debe ser publico: el navegador lo consume como script cross-origin desde Express
-	"postAttachCommand": "gh codespace ports visibility 5173:public -c $CODESPACE_NAME || true"
+		"5173": { "label": "Vite", "visibility": "public" }
+	}
 
 	// Optional Dev Container settings.
 
