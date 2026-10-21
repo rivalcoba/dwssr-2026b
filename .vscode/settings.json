@@ -10,6 +10,7 @@
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll": "always"
-  }
+    "source.fixAll.eslint": "always"
+  },
+  "editor.formatOnSave": true
 }
