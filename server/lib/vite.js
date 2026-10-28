@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 // Biblioteca de rutas
 import { fileURLToPath } from 'node:url';
-import { dirname, path } from 'node:path';
+import path, { dirname } from 'node:path';
 // Importando Debug
 import createDebug from "debug"
 
